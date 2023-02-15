@@ -14,12 +14,12 @@ main( )
 {    
 	vMC = gl_Vertex.xyz;
 	vec4 newVertex = gl_Vertex;
-	newVertex.z = uK * (1. - newVertex.y) * sin(2. * 3.14 * newVertex.x/uP);
+	newVertex.z = uK * (2. - newVertex.y) * sin(2. * 3.14 * newVertex.x/uP);
 
 
 	vec4 ECposition = gl_ModelViewMatrix * newVertex;
 
-	float dzdx = uK * (1. - newVertex.y) * (2. * 3.14/uP) * cos(2. * 3.14 * newVertex.x/uP);
+	float dzdx = uK * (2. - newVertex.y) * (2. * 3.14/uP) * cos(2. * 3.14 * newVertex.x/uP);
 	float dzdy = -uK * sin(2. * 3.14 * newVertex.x/uP);
 	vec3 xtangent = vec3(1.,0.,dzdx);
 	vec3 ytangent = vec3(0.,1.,dzdy);
